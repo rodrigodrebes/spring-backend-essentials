@@ -1,6 +1,8 @@
 package academy.devdojo.springessentials.controller;
 
 import academy.devdojo.springessentials.domain.Anime;
+import academy.devdojo.springessentials.requests.AnimePostRequestBody;
+import academy.devdojo.springessentials.requests.AnimePutRequestBody;
 import academy.devdojo.springessentials.service.AnimeService;
 import academy.devdojo.springessentials.util.DateUtil;
 
@@ -36,7 +38,7 @@ public class AnimeController {
     }
 
     @PostMapping
-    public ResponseEntity<Anime> save(@RequestBody Anime anime){
+    public ResponseEntity<Anime> save(@RequestBody AnimePostRequestBody anime){
         return new ResponseEntity<>(animeService.save(anime), HttpStatus.CREATED);
     }
 
@@ -47,7 +49,7 @@ public class AnimeController {
         }
 
     @PutMapping
-    public ResponseEntity<Void> replace(@RequestBody Anime anime){
+    public ResponseEntity<Void> replace(@RequestBody AnimePutRequestBody anime){
         animeService.replace(anime);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
