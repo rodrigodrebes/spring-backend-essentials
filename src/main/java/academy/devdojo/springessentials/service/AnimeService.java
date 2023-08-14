@@ -1,6 +1,7 @@
 package academy.devdojo.springessentials.service;
 
 import academy.devdojo.springessentials.domain.Anime;
+import academy.devdojo.springessentials.mapper.AnimeMapper;
 import academy.devdojo.springessentials.repository.AnimeRepository;
 import academy.devdojo.springessentials.requests.AnimePostRequestBody;
 import academy.devdojo.springessentials.requests.AnimePutRequestBody;
@@ -28,7 +29,8 @@ public class AnimeService {
     }
 
     public Anime save(AnimePostRequestBody animePostRequestBody) {
-     return animeRepository.save(Anime.builder().name(animePostRequestBody.getName()).build());
+
+     return animeRepository.save(AnimeMapper.INSTANCE.toAnime(animePostRequestBody));
     }
 
     public void delete(long id) {
