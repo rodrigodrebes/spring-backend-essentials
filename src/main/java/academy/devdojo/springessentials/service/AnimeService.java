@@ -36,7 +36,7 @@ public class AnimeService {
     }
 
     public void replace(AnimePutRequestBody animePutRequestBody) {
-findById(animePutRequestBody.getId());
+        findById(animePutRequestBody.getId());
         Anime anime = Anime.builder()
                 .id(animePutRequestBody.getId())
                 .name(animePutRequestBody.getName()).build();
